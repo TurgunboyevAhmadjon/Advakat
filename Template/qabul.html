@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>foydalanish shartlari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <section class="modal">
+        <div class="exit">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h1>MODAL</h1>
+        <ul class="mobile-links">
+          <li><a href="/about/">Biz haqimizda</a></li>
+          <li><a href="/news/">Yangiliklar</a></li>
+          <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+        </ul>
+      </section>
+      <section class="logo">
+        <a href="./">
+          <div class="brend">
+          ziyobobom.uz
+        </div>
+        </a>
+        <h1>
+          HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!
+        </h1>
+      </section>
+      <section class="navbar">
+        <div class="links">
+          <ul class="menu-icon">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="desktop-links">
+            <li><a href="/about/">Biz haqimizda</a></li>
+            <li><a href="/news/">Yangiliklar</a></li>
+            <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+          </ul>
+        </div>
+        <div class="login">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          Kirish
+        </div>
+        <select class="language" name="" id="">
+            <option value="">Uz</option>
+            <option value="">Ru</option>
+            <option value="">Eng</option>
+          </select>
+      </section>
+      <section class="condition">
+        <div class="left">
+          <h3>Ishga qabul qilish mumkin bo‘lgan yosh</h3>
+          <div class="left-info">
+            <div class="social-links">
+              <div>
+                <i class="fa-solid fa-eye"></i>
+                10775 marta o'qildi
+              </div>
+              <div>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-telegram"></i>
+              </div>
+            </div>
+            <img
+              class="qabul-img"
+              src="https://advice.uz/uploads/404b.jpg"
+              alt=""
+            />
+            <div class="about-info">
+              <p>
+                <span>Ishga qabul qilishga</span> <b>16 yoshdan</b> yo‘l
+                qo‘yiladi.
+              </p>
+            </div>
+            <hr />
+            <ol class="ol">
+              O‘quvchilar 15 yoshga to‘lganidan keyin ota-onasidan birining
+              roziligi bilan quyidagi engil ishlarga kirishi mumkin:
+              <li>
+                <b>sog‘lig‘iga</b> va <b>axloqiy</b> kamol topishiga
+                <b>ziyon etkazmaydigan</b> ishga;
+              </li>
+              <li><b>ta’lim</b> olishga <b>xalaqit</b> bermaydigan ishga;</li>
+              <li>
+                <b>o‘qishdan bo‘sh vaqtida</b> jalb qilinadigan engil
+                <b>ishga</b>
+              </li>
+            </ol>
+            <hr />
+            <div class="about-info">
+              <p>
+                O‘n sakkiz yoshga to‘lmagan shaxslarni ishga qabul qilish Mehnat
+                kodeksda nazarda tutilgan talablarga rioya etilgan holda amalga
+                oshiriladi.
+              </p>
+            </div>
+            <hr />
+            <div class="accardion">
+              <div class="accardion-title">
+                Hududiy bepul huquqiy maslahat byurolari
+                <i class="fa-solid fa-circle-minus minus"></i>
+                <i class="fa-solid fa-circle-plus plus"></i>
+              </div>
+              <div class="accardion-info">
+                <p class="qabul-req">
+                  Savol: O‘n olti yoshli N. ismli shaxs ishga kirmoqchi
+                  bo‘lganida, undan ota-onasidan birining yoki ota-onasining
+                  o‘rnini bosuvchi shaxslardan birining yozma roziligi olib
+                  kelish lozimligi talab qilinib, aks holda ishga qabul
+                  qilinmasligi ma’lum qilingani, ish beruvchining ushbu talabi
+                  qonuniy yoki noqonuniy ekanligini so‘radi. Javob: Ushbu
+                  holatda N.ismli shaxsdan Mehnat kodeksining 77-moddasiga
+                  asosan ota-onasidan birining yoki ota-onasining o‘rnini
+                  bosuvchi shaxslardan birining yozma roziligi 16 yoshga to‘lgan
+                  shaxsdan talab qilinmaydi. Mazkur yozma rozilik faqat 15
+                  yoshli shaxsdan talaba qilinishi mumkin. Demak, N. ismli
+                  shaxsdan yozma rolik olib kelishni talab qilish qonunga
+                  ziddir.
+                </p>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="right">
+          <h3>Bo'limlar</h3>
+          <a href="mehnat-m.html" class="card">
+            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
+          </a>
+          <a href="#" class="card">
+            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
+          </a>
+          <a href="#" class="card">
+            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
+          </a>
+          <a href="#" class="card">
+            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
+          </a>
+        </div>
+      </section>
+      <section class="footer">
+        <div class="footer-nav">
+          <ul>
+            <li>Sayt xaritasi</li>
+            <li>Aloqalar</li>
+            <li>Vakansiya</li>
+            <li>Reglament</li>
+            <li>Reklama</li>
+            <li>Foydalanish shartlari</li>
+          </ul>
+          <div class="social">
+            <i class="fa-brands fa-telegram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-me">
+        <div>
+          © 2019-2021 “Madad” muassasa shaklidagi nodavlat notijorat tashkiloti
+        </div>
+        <div>
+          <i class="fa-brands fa-google-play"></i>
+          <b>Google Play</b>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="js/main.js"></script>
+</html>

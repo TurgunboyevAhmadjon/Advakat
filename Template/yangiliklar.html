@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Yangiliklar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>-->
+  </head>
+  <body>
+    <div class="container">
+      <section class="modal">
+        <div class="exit">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h1>MODAL</h1>
+        <ul class="mobile-links">
+          <li><a href="/about/">Biz haqimizda</a></li>
+          <li><a href="#">Yangiliklar</a></li>
+          <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+        </ul>
+      </section>
+      <section class="logo">
+        <a href="./">
+          <div class="brend">ziyobobom.uz</div>
+        </a>
+        <h1>HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!</h1>
+      </section>
+      <section class="navbar">
+        <div class="links">
+          <ul class="menu-icon">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="desktop-links">
+            <li><a href="/about/">Biz haqimizda</a></li>
+            <li><a href="#">Yangiliklar</a></li>
+            <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+          </ul>
+        </div>
+        <div class="login">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          Kirish
+        </div>
+        <select class="language" name="" id="">
+          <option value="">Uz</option>
+          <option value="">Ru</option>
+          <option value="">Eng</option>
+        </select>
+      </section>
+      <section class="condition">
+        <div class="left">
+            <h3>Yangiliklar</h3>
+            <div class="new">
+              {% for yangi in yangilik %}
+              <div>
+                <img
+                  src="{{yangi.rasm}}"
+                  alt="Error"
+                />
+              </div>
+              <div>
+                <div class="news-link">
+                  <i class="fa-brands fa-facebook"></i>
+                  <i class="fa-brands fa-twitter"></i>
+                  <i class="fa-brands fa-telegram"></i>
+                </div>
+                <h3>
+                  {{yangi.nom}}
+                </h3>
+                <p>
+                  <i class="fa-solid fa-eye"></i> {{yangi.oqildi}}&nbsp; &nbsp;
+                  <i class="calendar fa-solid fa-calendar-days"></i>{{yangi.sana}}
+                </p>
+                <a href="/news1/">Batafsil >></a>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
+          <div class="news-right">
+            <div class="news-one">
+              <h3>So'ngi Yangiliklar</h3>
+              <div class="card">
+                <a href="./news1.html">
+                <p>31. 05. 2022</p>
+                <h4>
+                  Xarid cheklarini berish bilan bog‘liq tekshirishlar to‘g‘risida
+                </h4>
+              </a>
+              </div>
+            </div>
+          <div class="news-two">
+            <h3>Ko‘p o‘qilgan yangiliklar</h3>
+            <div class="card">
+              <a href="#">
+              <p>31. 05. 2022</p>
+              <h4>
+                Xarid cheklarini berish bilan bog‘liq tekshirishlar to‘g‘risida
+              </h4>
+            </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer">
+        <div class="footer-nav">
+          <ul>
+            <li>Sayt xaritasi</li>
+            <li>Aloqalar</li>
+            <li>Vakansiya</li>
+            <li>Reglament</li>
+            <li>Reklama</li>
+            <li>Foydalanish shartlari</li>
+          </ul>
+          <div class="social">
+            <i class="fa-brands fa-telegram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-me">
+        <div>
+          © 2019-2021 “Madad” muassasa shaklidagi nodavlat notijorat tashkiloti
+        </div>
+        <div>
+          <i class="fa-brands fa-google-play"></i>
+          <b>Google Play</b>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="js/main.js"></script>
+</html>

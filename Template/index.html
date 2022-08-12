@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Advokat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'style/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-page">
+        <div class="box">
+          <div class="exit-login">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <form action="" method="post" class="login-form">{% csrf_token %}
+            <label for="" >Login</label> <br>
+            <input type="text" name="l" required> <br>
+            <label for="">Parol</label> <br>
+            <input type="password" name="p" required> <br>
+            <button class="btn3" type="submit">Kirish</button>
+          </form>
+        </div>
+      </div>
+      <section class="modal">
+        <div class="exit">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h1>MODAL</h1>
+        <ul class="mobile-links">
+          <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
+          <li><a href="/yangiliklar/">Yangiliklar</a></li>
+
+          <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+        </ul>
+      </section>
+      <section class="logo">
+        <a href="/">
+          <div class="brend">ziyobobom.uz</div>
+        </a>
+        <h1>HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!</h1>
+      </section>
+      <section class="navbar">
+        <div class="links">
+          <ul class="menu-icon">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="desktop-links">
+            <li><a href="/about/">Biz haqimizda</a></li>
+            <li><a href="/news/">Yangiliklar</a></li>
+
+            <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+          </ul>
+        </div>
+        <div style="display: flex; gap:10px">
+          <div class="login">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Kirish
+          </div>
+          {% if request.user.is_authenticated %}
+          <a href="/logout/" style="color: white">
+            <div class="login">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Chiqish
+            </div>
+          </a>
+          {% endif %}
+        </div>
+        <select class="language" name="" id="">
+          <option value="">Uz</option>
+          <option value="">Ru</option>
+          <option value="">Eng</option>
+        </select>
+      </section>
+      <section class="header" id="header">
+        <div class="slider">
+          <div class="home" id="home">
+            <div class="swiper home-slider">
+              <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide slide">
+                  <div class="image">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Libero, illum!
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide slide">
+                  <div class="image image2">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Dolores, eos.
+                    </p>
+                  </div>
+                </div>
+                <div class="swiper-slide slide">
+                  <div class="image image3">
+                    <p>
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Iure, rerum.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dotted"></div>
+            </div>
+          </div>
+        </div>
+        <div class="header-info">
+          <h2>O‘ZINGIZNI QIZIQTIRGAN SAVOLGA JAVOB TOPING</h2>
+          <form action="">
+            <input type="text" placeholder="Izlash uchun matn kiriting" />
+            <button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <p>Masalan: Pensiyaga chiqish, Mehnat taʼtili</p>
+        </div>
+      </section>
+      <section class="departments">
+        <div class="title">
+          <div><h1>Bo'limlar</h1></div>
+          <div class="line1"><hr /></div>
+        </div>
+        <div class="cards">
+          {% for bolim in bolimlar %}
+          <a href="/bolim/{{bolim.id}}/" class="card">
+            <i class="fa-solid fa-user-large"></i> {{bolim.nom}}
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+      <section class="top-questions">
+        <div class="title">
+          <div><h1>To'p-10 Savollar</h1></div>
+          <div class="line2"><hr /></div>
+        </div>
+        <div class="questions">
+          <div class="question">
+            <span>1</span>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+          </div>
+        </div>
+      </section>
+      <section class="results">
+        <div>
+          <img src="images/logo 1.jpg" alt="" />
+          <div>
+            <p>Ijobiy fikrlar</p>
+            <h1>99%</h1>
+          </div>
+        </div>
+        <div>
+          <img src="images/logo 2.jpg" alt="" />
+          <div>
+            <p>Javobni kutish</p>
+            <h1>15 daqiqa</h1>
+          </div>
+        </div>
+        <div>
+          <img src="images/logo 3.jpg" alt="" />
+          <div>
+            <p>Onlayn maslahatchilar</p>
+            <h1>5 kishi</h1>
+          </div>
+        </div>
+        <div>
+          <img src="images/logo 4.jpg" alt="" />
+          <div>
+            <p>Bugungi javoblar</p>
+            <h1>43731 ta</h1>
+          </div>
+        </div>
+        <div>
+          <img src="images/logo 5.jpg" alt="" />
+          <div>
+            <p>Barcha savollar</p>
+            <h1>44179 ta</h1>
+          </div>
+        </div>
+      </section>
+      <section class="website-about">
+        <div class="title">
+          <div>
+            <img src="https://advice.uz/static/assets/img/usaid.png" alt="" />
+          </div>
+          <div class="line3"><hr /></div>
+        </div>
+        <p>
+          <i
+            >Mazkur veb-sayt AQSH Xalqaro taraqqiyot agentligi (USAID) orqali
+            ko‘rsatilgan Amerika xalqining yordami asosida yaratilgan. Mahsulot
+            mazmuni bo‘yicha masʼuliyat Tetra Tech DPK ga yuklatiladi va USAID
+            yoki AQSH hukumati rasmiy nuqtai nazarini aks ettirishi shart
+            emas.</i
+          >
+        </p>
+      </section>
+      <section class="source">
+        <div class="title">
+          <div><h1>FOYDALI MANBALAR</h1></div>
+          <div class="line4"><hr /></div>
+        </div>
+        <section class="review" id="review">
+          <div class="swiper-container review-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="swiper-slide slide">
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+      </section>
+      <section class="footer">
+        <div class="footer-nav">
+          <ul>
+            <li>Sayt xaritasi</li>
+            <li>Aloqalar</li>
+            <li>Vakansiya</li>
+            <li>Reglament</li>
+            <li>Reklama</li>
+            <li>Foydalanish shartlari</li>
+          </ul>
+          <div class="social">
+            <i class="fa-brands fa-telegram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-me">
+        <div>
+          © 2019-2021 “Madad” muassasa shaklidagi nodavlat notijorat tashkiloti
+        </div>
+        <div>
+          <i class="fa-brands fa-google-play"></i>
+          <b>Google Play</b>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".review-slider", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      loop: true,
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+    var swiper = new Swiper(".home-slider", {
+      spaceBetween: 20,
+      centeredSlides: true,
+      autoplay: {
+        delay: 1500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".dotted",
+        clickable: true,
+        color: "red",
+      },
+      loop: true,
+    });
+  </script>
+</html>
