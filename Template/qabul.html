@@ -29,7 +29,7 @@
         </ul>
       </section>
       <section class="logo">
-        <a href="./">
+        <a href="/advice/">
           <div class="brend">
           ziyobobom.uz
         </div>
@@ -110,6 +110,7 @@
               </p>
             </div>
             <hr />
+
             <div class="accardion">
               <div class="accardion-title">
                 Hududiy bepul huquqiy maslahat byurolari
@@ -135,22 +136,45 @@
               </div>
             </div>
             <hr>
-          </div>
+            <div class="accardion">
+              <div class="open-accardion-title">
+                Test
+              </div>
+              <div class="open-accardion-info">
+                <ol>
+                  <form method="post" action="/natija/{{dars.id}}/">{% csrf_token %}
+                    {% for test in dars.dars_testlari.all %}
+                  <li>
+                    {{test.savol}} <br />
+                    <div class="answers">
+                      {% for variant in test.test_variantlari.all %}
+                      <div>
+                        <input
+                          type="radio"
+                          id="{{variant.id}}"
+                          name="{{test.savol}}"
+                          value="{{variant.id}}"
+                        />
+                        <label for="{{variant.id}}">{{variant.variant_matni}}</label><br />
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </li>
+                    {% endfor %}
+                    <button class="btn4" type="submit">Jo'natish</button>
+                    <h3>Sizning natijangiz: </h3>
+                    </form>
+                </ol>
+              </div>
+            </div>
         </div>
         <div class="right">
           <h3>Bo'limlar</h3>
-          <a href="mehnat-m.html" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
+          {% for i in bolimlar %}
+          <a href="/mehnat-m/" class="card">
+            <i class="fa-solid fa-user-large"></i>{{i.nom}}
           </a>
-          <a href="#" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
-          </a>
-          <a href="#" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
-          </a>
-          <a href="#" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
-          </a>
+          {% endfor %}
         </div>
       </section>
       <section class="footer">
@@ -183,5 +207,5 @@
       </section>
     </div>
   </body>
-  <script src="js/main.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </html>

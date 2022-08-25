@@ -49,10 +49,10 @@
             <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
           </ul>
         </div>
-        <div class="login">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          Kirish
-        </div>
+<!--        <div class="login">-->
+<!--          <i class="fa-solid fa-right-to-bracket"></i>-->
+<!--          Kirish-->
+<!--        </div>-->
         <select class="language" name="" id="">
           <option value="">Uz</option>
           <option value="">Ru</option>
@@ -65,10 +65,7 @@
             <div class="new">
               {% for yangi in yangilik %}
               <div>
-                <img
-                  src="{{yangi.rasm}}"
-                  alt="Error"
-                />
+                <img src="{{yangi.rasmlar}}" alt="Error"/>
               </div>
               <div>
                 <div class="news-link">
@@ -77,7 +74,7 @@
                   <i class="fa-brands fa-telegram"></i>
                 </div>
                 <h3>
-                  {{yangi.nom}}
+                  <a href="/news1/">{{yangi.nom}}</a>
                 </h3>
                 <p>
                   <i class="fa-solid fa-eye"></i> {{yangi.oqildi}}&nbsp; &nbsp;
@@ -143,5 +140,5 @@
       </section>
     </div>
   </body>
-  <script src="js/main.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </html>

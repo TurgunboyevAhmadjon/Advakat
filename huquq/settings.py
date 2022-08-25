@@ -19,18 +19,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'qonun',
+    'modeltranslation',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  #
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -92,7 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz-latn'
 
 TIME_ZONE = 'UTC'
 
@@ -100,6 +102,21 @@ USE_I18N = True
 
 USE_TZ = True
 
+USE_L10N = True
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('uz-latn', 'Latin'),
+    ('ru', 'Russian'),
+)
+
+# LOCALE_PATHS = [
+#     BASE_DIR / 'locale/',
+# ]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz-latn'
+
+MODELTRANSLATION_LANGUAGES = ('en', 'uz-latn', 'ru')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -111,6 +128,9 @@ STATICFILES_DIRS = [BASE_DIR/'Static']
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
 
 
 # username: advokat;

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -46,70 +48,68 @@
             <li></li>
           </ul>
           <ul class="desktop-links">
-            <li><a href="/about/">Biz haqimizda</a></li>
-            <li><a href="/news/">Yangiliklar</a></li>
-            <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+           {% if LANGUAGE_CODE != 'uz-latn' %}
+            <li><a href="/{{LANGUAGE_CODE}}/biz-haqimizda/">Biz haqimizda</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/yangiliklar/">Yangiliklar</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% else %}
+            <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
+            <li><a href="/yangiliklar/">Yangiliklar</a></li>
+            <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% endif %}
           </ul>
         </div>
-        <div class="login">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          Kirish
-        </div>
-        <select class="language" name="" id="">
-            <option value="">Uz</option>
-            <option value="">Ru</option>
-            <option value="">Eng</option>
+        <select class="language">
+          <a href="{% url 'set-language' 'uz-latn' %}">Lotin</a>
+          <a href="{% url 'set-language' 'en' %}">En</a>
+          <a href="/set_language/ru/">Ru</a>
           </select>
       </section>
       <section class="condition">
         <div class="left">
-          <h3>Foydalanish shartlari</h3>
+          <h3>{{bolim.nom}}</h3>
           <div class="left-info">
+
             <div class="accardion">
+              {% for mavzu in mavzular %}
               <div class="accardion-title">
-                Ishga joylashish
+                {{mavzu.nom}}
                 <i class="fa-solid fa-circle-minus minus"></i>
                 <i class="fa-solid fa-circle-plus plus"></i>
               </div>
+              {% endfor %}
               <div class="accardion-info">
                 <ul>
+                  {% if dars in darslar %}
                   <li>
-                    <a href="qabul.html">
+                    <a href="/qabul/">
                       <i class="fa-solid fa-file-word"></i>
-                      Ishga qabul qilish mumkin bo‘lgan yosh
+                      {{dars.nom}}
                     </a>
                   </li>
-                  <li>
-                    <a href="">
-                      <i class="fa-solid fa-file-word"></i>
-                      Ishga qabul qilish mumkin bo‘lgan yosh
-                    </a>
-                  </li>
-                  <li>
-                    <a href="">
-                      <i class="fa-solid fa-file-word"></i>
-                      Ishga qabul qilish mumkin bo‘lgan yosh
-                    </a>
-                  </li>
+                  {% endif %}
                 </ul>
               </div>
             </div>
+
           </div>
         </div>
         <div class="right">
           <h3>Bo'limlar</h3>
-          <a href="#" class="card active">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
+          {% for i in bolimlar %}
+          <a href="/bolim/{{bolim.id}}/" class="card active">
+            <i class="fa-solid fa-user-large"></i> {{i.nom}}
           </a>
-          <a href="#" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
-          </a>
-          <a href="#" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
-          </a>
-          <a href="#" class="card">
-            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari
-          </a>
+          {% endfor %}
+<!--          <a href="#" class="card">-->
+<!--            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari-->
+<!--          </a>-->
+<!--          <a href="#" class="card">-->
+<!--            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari-->
+<!--          </a>-->
+<!--          <a href="#" class="card">-->
+<!--            <i class="fa-solid fa-user-large"></i> Mehnat munosabatlari-->
+<!--          </a>-->
         </div>
       </section>
       <section class="footer">
@@ -142,5 +142,5 @@
       </section>
     </div>
   </body>
-  <script src="js/main.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </html>

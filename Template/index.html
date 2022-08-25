@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -43,9 +45,9 @@
             <i class="fa-solid fa-xmark"></i>
           </div>
           <form action="" method="post" class="login-form">{% csrf_token %}
-            <label for="" >Login</label> <br>
+            <label >Login</label> <br>
             <input type="text" name="l" required> <br>
-            <label for="">Parol</label> <br>
+            <label >Parol</label> <br>
             <input type="password" name="p" required> <br>
             <button class="btn3" type="submit">Kirish</button>
           </form>
@@ -57,17 +59,22 @@
         </div>
         <h1>MODAL</h1>
         <ul class="mobile-links">
-          <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
-          <li><a href="/yangiliklar/">Yangiliklar</a></li>
-
-          <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+         {% if LANGUAGE_CODE != 'uz-latn' %}
+            <li><a href="/{{LANGUAGE_CODE}}/biz-haqimizda/">Biz haqimizda</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/yangiliklar/">Yangiliklar</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% else %}
+            <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
+            <li><a href="/yangiliklar/">Yangiliklar</a></li>
+            <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% endif %}
         </ul>
       </section>
       <section class="logo">
-        <a href="/">
+        <a href="">
           <div class="brend">ziyobobom.uz</div>
         </a>
-        <h1>HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!</h1>
+        <h1>{% trans "HUQUQIY MASLAHAT - BEPUL,TEZKOR, HAMMAGA!" %}</h1>
       </section>
       <section class="navbar">
         <div class="links">
@@ -77,31 +84,43 @@
             <li></li>
           </ul>
           <ul class="desktop-links">
-            <li><a href="/about/">Biz haqimizda</a></li>
-            <li><a href="/news/">Yangiliklar</a></li>
-
-            <li><a href="/foydalanish/">Foydalanish shartlari</a></li>
+            {% if LANGUAGE_CODE != 'uz-latn' %}
+            <li><a href="/{{LANGUAGE_CODE}}/biz-haqimizda/">Biz haqimizda</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/yangiliklar/">Yangiliklar</a></li>
+            <li><a href="/{{LANGUAGE_CODE}}/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% else %}
+            <li><a href="/biz-haqimizda/">Biz haqimizda</a></li>
+            <li><a href="/yangiliklar/">Yangiliklar</a></li>
+            <li><a href="/foydalanish-shartlari/">Foydalanish shartlari</a></li>
+            {% endif %}
           </ul>
         </div>
         <div style="display: flex; gap:10px">
+           {% if request.user.is_authenticated %}
           <div class="login">
             <i class="fa-solid fa-right-to-bracket"></i>
             Kirish
           </div>
-          {% if request.user.is_authenticated %}
+         {% endif %}
           <a href="/logout/" style="color: white">
+            {% if not request.user.is_authenticated %}
             <div class="login">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
               Chiqish
             </div>
+
           </a>
           {% endif %}
         </div>
-        <select class="language" name="" id="">
-          <option value="">Uz</option>
-          <option value="">Ru</option>
-          <option value="">Eng</option>
+<!--        <a href="/set_language/uz-cyrl/">Krill</a>-->
+<!--        <a href="/set_language/en/">En</a>-->
+<!--        <a href="/set_language/ru/">Ru</a>-->
+        <select class="language">
+          <a href="{% url 'set-language' 'uz-latn' %}">Lotin</a>
+          <a href="{% url 'set-language' 'en' %}">En</a>
+          <a href="/set_language/ru/">Ru</a>
         </select>
+
       </section>
       <section class="header" id="header">
         <div class="slider">
@@ -111,24 +130,21 @@
                 <div class="swiper-slide slide">
                   <div class="image">
                     <p>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Libero, illum!
+                      Ijtimoiy himoyaga muhtoj aholiga bir martalik moddiy yordam ko‘rsatiladi
                     </p>
                   </div>
                 </div>
                 <div class="swiper-slide slide">
                   <div class="image image2">
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Dolores, eos.
+                      Xarid cheklarini berish bilan bog‘liq tekshirishlar to‘g‘risida
                     </p>
                   </div>
                 </div>
                 <div class="swiper-slide slide">
                   <div class="image image3">
                     <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Iure, rerum.
+                     Davlat pensiyalari, nafaqalar, kompensatsiyalar va boshqa ijtimoiy to‘lovlarni to‘lash tizimini yanada takomillashtirish
                     </p>
                   </div>
                 </div>
@@ -157,7 +173,7 @@
         <div class="cards">
           {% for bolim in bolimlar %}
           <a href="/bolim/{{bolim.id}}/" class="card">
-            <i class="fa-solid fa-user-large"></i> {{bolim.nom}}
+            <i class="fa-solid fa-user-large"></i> <u style="text-decoration:capitalize">{{bolim.nom}}</u>
           </a>
           {% endfor %}
         </div>
@@ -170,7 +186,7 @@
         <div class="questions">
           <div class="question">
             <span>1</span>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <p><a>{{i.nom}}</a></p>
           </div>
         </div>
       </section>
